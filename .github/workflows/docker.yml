@@ -16,7 +16,7 @@ jobs:
       uses: docker/login-action@v2
       with:
         username: ${{ secrets.geethika212 }}
-        password: ${{ secrets.arunaram@143 }}
+        password: ${{ secrets.Arunaram@143 }}
 
     - name: Build and push frontend image
       run: |

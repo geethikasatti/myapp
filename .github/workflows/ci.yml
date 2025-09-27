@@ -10,11 +10,6 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
 
-    services:
-      docker:
-        image: docker:20.10.7
-        options: --privileged
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -26,12 +21,12 @@ jobs:
 
     - name: Install frontend dependencies
       run: |
-        cd myapp/frontend
+        cd frontend
         npm install
 
     - name: Run frontend tests
       run: |
-        cd myapp/backend
+        cd frontend
         npm test
 
     - name: Set up Python
@@ -41,7 +36,8 @@ jobs:
 
     - name: Install backend dependencies
       run: |
-        cd myapp/backend
+        cd backend
+        pip install --upgrade pip
         pip install -r requirements.txt
 
     - name: Run backend tests

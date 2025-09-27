@@ -14,6 +14,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: Show directory structure (debug)
+      run: ls -R
+
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
@@ -21,12 +24,12 @@ jobs:
 
     - name: Install frontend dependencies
       run: |
-        cd frontend
+        cd myapp/frontend
         npm install
 
     - name: Run frontend tests
       run: |
-        cd frontend
+        cd myapp/frontend
         npm test
 
     - name: Set up Python
@@ -36,11 +39,11 @@ jobs:
 
     - name: Install backend dependencies
       run: |
-        cd backend
+        cd myapp/backend
         pip install --upgrade pip
         pip install -r requirements.txt
 
     - name: Run backend tests
       run: |
-        cd backend
+        cd myapp/backend
         pytest

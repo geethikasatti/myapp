@@ -25,5 +25,5 @@ jobs:
 
     - name: Build and push backend image
       run: |
-        docker build -t ${{ secrets.geethika212 }}/myapp-backend ./myapp/backend
-        docker push ${{ secrets.geethika212}}/myapp-backend
+        docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/myapp-backend ./myapp/backend
+        docker push ${{ secrets.DOCKERHUB_USERNAME}}/myapp-backend

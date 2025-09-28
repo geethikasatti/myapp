@@ -15,13 +15,13 @@ jobs:
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
-        username: ${{ secrets.geethika212 }}
-        password: ${{ secrets.dckr_pat_RY8XxCIQoI4RuFIRa_nfzClLDME }}
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Build and push frontend image
       run: |
-        docker build -t ${{ secrets.geethika212 }}/myapp-frontend ./myapp/frontend
-        docker push ${{ secrets.geethika212 }}/myapp-frontend
+        docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/myapp-frontend ./myapp/frontend
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/myapp-frontend
 
     - name: Build and push backend image
       run: |
